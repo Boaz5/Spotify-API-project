@@ -1,0 +1,20 @@
+{% extends "base.html"%}
+
+{% block title%}
+Playlist Creator
+{% endblock%}
+
+{% block content %}
+<form action="create" method="post">
+    <label for="create">Choose a Playlist To Base Your New PLaylist On:</label><br>
+    <select id="create" name="playlist_chosen" class="select">
+        {% for playlist in playlists %}
+            <option value="{{playlist.id}}">{{playlist.name}}</option>
+        {% endfor %}
+    </select>
+    <p></p>
+    <label for="playlist_name">What's the Name For The New Playlist?</label><br>
+    <p><input autocomplete="off" id="playlist_name" name="playlist_name" placeholder="Name" type="text" class="input"></p>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock%}
